@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Design Portfolio — Year 10 Multimedia App Design</title>
+<style>
+:root{--blue:#1B4965;--orange:#E07A3A;--grey:#5C6B73;--yellow:#F2C744;--bg:#F5F0EB;--charcoal:#2D3142;--green:#7FB069;--purple:#8E5DB2;--white:#FFFFFF;--light-grey:#E8E4E0;--font-heading:"Franklin Gothic Medium","DIN Condensed","Arial Narrow",sans-serif;--font-body:"Segoe UI","Helvetica Neue",Arial,sans-serif}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{font-size:15px}body{font-family:var(--font-body);background:var(--light-grey);color:var(--charcoal);line-height:1.55;padding-top:56px}
+.toolbar{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;background:var(--charcoal);color:var(--white);padding:10px 24px;height:56px;box-shadow:0 2px 8px rgba(0,0,0,.25)}.toolbar-left{display:flex;align-items:center;gap:14px}.toolbar-title{font-family:var(--font-heading);font-size:1rem;letter-spacing:.5px}.save-indicator{font-size:.8rem;opacity:.7;transition:opacity .3s}.save-indicator.saving{opacity:1;color:var(--yellow)}.toolbar-right{display:flex;gap:10px;flex-wrap:wrap}.toolbar-right button{font-family:var(--font-body);font-size:.85rem;font-weight:600;border:none;border-radius:6px;padding:8px 16px;cursor:pointer;transition:transform .1s,box-shadow .15s}.toolbar-right button:hover{transform:translateY(-1px);box-shadow:0 2px 6px rgba(0,0,0,.3)}.btn-pdf{background:var(--orange);color:var(--white)}.btn-share{background:var(--green);color:var(--white)}.btn-clear{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.3)!important}.btn-clear:hover{border-color:#ff6b6b!important;color:#ff6b6b}
+.portfolio{max-width:860px;margin:24px auto;background:var(--white);border-radius:12px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+.ws-header{background:linear-gradient(135deg,var(--blue) 0%,#234E6F 100%);color:var(--white);padding:32px 36px 28px;position:relative;overflow:hidden}.ws-header::after{content:"";position:absolute;top:0;right:0;bottom:0;width:220px;background:repeating-linear-gradient(90deg,transparent,transparent 18px,rgba(255,255,255,.04) 18px,rgba(255,255,255,.04) 20px)}.ws-badge{font-family:var(--font-heading);font-size:.85rem;background:var(--orange);padding:4px 14px;border-radius:20px;letter-spacing:1px;font-weight:700}.ws-title{font-family:var(--font-heading);font-size:1.8rem;margin:12px 0 4px;letter-spacing:.5px;position:relative;z-index:1}.ws-subtitle{font-size:.95rem;opacity:.85;position:relative;z-index:1}
+.ws-meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px;border-top:1px solid rgba(255,255,255,.2);padding-top:14px;position:relative;z-index:1}.ws-meta label{font-size:.8rem;opacity:.7;display:block;margin-bottom:2px}.ws-meta input{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:var(--white);padding:6px 12px;border-radius:6px;font-family:var(--font-body);font-size:.9rem;width:200px}.ws-meta input::placeholder{color:rgba(255,255,255,.4)}.ws-meta input:focus{outline:none;border-color:var(--yellow);background:rgba(255,255,255,.18)}
+
+/* Progress bar */
+.progress-bar{background:var(--bg);padding:14px 36px;border-bottom:1px solid var(--light-grey);display:flex;align-items:center;gap:16px}.progress-label{font-family:var(--font-heading);font-size:.85rem;color:var(--grey);white-space:nowrap}.progress-track{flex:1;height:8px;background:var(--light-grey);border-radius:4px;overflow:hidden}.progress-fill{height:100%;background:linear-gradient(90deg,var(--green),#5a9a4a);border-radius:4px;transition:width .4s ease;width:0}.progress-pct{font-family:var(--font-heading);font-size:.85rem;color:var(--green);min-width:36px}
+
+/* Sections */
+.section-divider{background:var(--bg);padding:20px 36px;border-top:3px solid var(--blue);display:flex;align-items:center;gap:14px}.section-num{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:1.1rem;color:var(--white);flex-shrink:0}.section-divider-text h2{font-family:var(--font-heading);font-size:1.15rem;letter-spacing:1px}.section-divider-text p{font-size:.85rem;color:var(--grey)}.section-divider-text .marks{font-weight:700;color:var(--orange)}
+
+.s1 .section-num{background:var(--orange)}.s1{border-top-color:var(--orange)}
+.s2 .section-num{background:var(--green)}.s2{border-top-color:var(--green)}
+.s3 .section-num{background:var(--blue)}.s3{border-top-color:var(--blue)}
+.s4 .section-num{background:var(--purple)}.s4{border-top-color:var(--purple)}
+
+section.content{padding:28px 36px;border-top:1px solid var(--light-grey)}
+.question{margin-bottom:24px}.question > p{margin-bottom:8px;font-weight:600}.question .hint{font-weight:400;font-size:.85rem;color:var(--grey);font-style:italic;margin-bottom:8px}
+textarea,input[type="text"]{width:100%;border:1.5px solid var(--light-grey);border-radius:8px;padding:10px 14px;font-family:var(--font-body);font-size:.92rem;line-height:1.6;color:var(--charcoal);background:#FAFAF8;transition:border-color .2s,box-shadow .2s;resize:vertical}textarea:focus,input[type="text"]:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(27,73,101,.12)}textarea{min-height:80px}textarea.tall{min-height:120px}textarea.short{min-height:50px}
+
+.sub-label{font-size:.82rem;color:var(--grey);margin-bottom:4px;display:block;font-weight:600}
+.info-box{background:var(--bg);border-radius:10px;padding:16px 20px;margin:14px 0;font-size:.9rem;border-left:5px solid var(--blue)}.info-box strong{color:var(--blue)}
+.diff-box{border-radius:10px;padding:14px 18px;margin:12px 0;font-size:.88rem}.diff-support{background:#F0F7ED;border:2px solid var(--green);border-left-width:5px}.diff-support .diff-label{font-family:var(--font-heading);font-size:.8rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--green);margin-bottom:6px}
+.word-bank{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.word-bank span{background:#EEF4F8;border:1px solid var(--blue);color:var(--blue);padding:3px 10px;border-radius:14px;font-size:.82rem;cursor:pointer;transition:all .15s}.word-bank span:hover{background:var(--blue);color:var(--white)}
+
+/* Drawing / image placeholders */
+.draw-box{border:2px dashed var(--light-grey);border-radius:10px;min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:20px;color:var(--grey);font-size:.9rem;cursor:pointer;transition:border-color .2s;position:relative;overflow:hidden}.draw-box:hover{border-color:var(--blue)}.draw-box input[type="file"]{position:absolute;inset:0;opacity:0;cursor:pointer}.draw-box img{max-width:100%;max-height:400px;border-radius:8px;object-fit:contain}.draw-box.has-image{border-style:solid;border-color:var(--green)}
+.draw-box .remove-img{position:absolute;top:8px;right:8px;background:rgba(239,68,68,.9);color:white;border:none;border-radius:50%;width:28px;height:28px;font-size:1rem;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:2}.draw-box.has-image .remove-img{display:flex}
+
+/* Checklist */
+.checklist{margin:14px 0}.check-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:8px;padding:8px 12px;background:var(--bg);border-radius:8px}.check-item input[type="checkbox"]{width:20px;height:20px;margin-top:2px;accent-color:var(--green);flex-shrink:0;cursor:pointer}.check-item label{font-size:.9rem;cursor:pointer}
+
+/* Scale grid helper */
+.scale-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:.88rem}.scale-table th{background:var(--blue);color:var(--white);padding:8px 12px;text-align:left;font-family:var(--font-heading);font-size:.82rem;text-transform:uppercase;letter-spacing:1px}.scale-table td{padding:8px 12px;border-bottom:1px solid var(--light-grey);vertical-align:top}.scale-table tr:nth-child(even) td{background:#FAFAF8}.scale-table input{font-size:.85rem;padding:6px 10px;min-height:auto}
+
+/* PMI table */
+.pmi-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:14px 0}.pmi-col{border-radius:10px;padding:14px}.pmi-col h4{font-family:var(--font-heading);font-size:.9rem;margin-bottom:8px}.pmi-plus{background:#F0F7ED;border:2px solid var(--green)}.pmi-plus h4{color:var(--green)}.pmi-minus{background:#FEF2F2;border:2px solid #E05555}.pmi-minus h4{color:#E05555}.pmi-int{background:#FEF9ED;border:2px solid var(--yellow)}.pmi-int h4{color:#C5982A}
+
+/* Criteria eval */
+.eval-card{border-radius:10px;padding:18px 20px;margin-bottom:16px;border:2px solid var(--light-grey);border-left-width:5px;border-left-color:var(--blue)}.eval-card h4{font-family:var(--font-heading);font-size:1rem;color:var(--blue);margin-bottom:8px}
+.rank-select{display:flex;gap:8px;margin:8px 0;flex-wrap:wrap}.rank-btn{padding:6px 16px;border:2px solid var(--light-grey);border-radius:20px;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .15s;background:var(--white)}.rank-btn:hover{border-color:var(--blue);color:var(--blue)}.rank-btn.active{background:var(--blue);color:var(--white);border-color:var(--blue)}
+
+/* Two-column layout for comparison */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0}
+.two-col .col-box{border:1.5px solid var(--light-grey);border-radius:10px;padding:16px}
+.two-col .col-box h4{font-family:var(--font-heading);font-size:.9rem;margin-bottom:10px;color:var(--blue)}
+
+.ws-footer{background:var(--charcoal);color:rgba(255,255,255,.7);padding:18px 36px;font-size:.78rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}.ws-footer strong{color:var(--white)}
+
+@media (max-width:700px){section.content{padding:20px 18px}.ws-header{padding:24px 18px 20px}.section-divider{padding:16px 18px}.pmi-grid{grid-template-columns:1fr}.two-col{grid-template-columns:1fr}.ws-meta input{width:150px}.progress-bar{padding:10px 18px}}
+@media print{@page{size:A4;margin:15mm 12mm}body{padding-top:0;background:white;font-size:12px}.toolbar{display:none!important}.portfolio{max-width:100%;margin:0;box-shadow:none;border-radius:0}.ws-header{padding:20px 24px 16px;-webkit-print-color-adjust:exact;print-color-adjust:exact}.ws-header::after{display:none}section.content{padding:16px 24px}.ws-footer{-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:12px 24px}textarea,input[type="text"]{border:1.5px solid #ccc;min-height:50px;background:white!important}.section-divider{-webkit-print-color-adjust:exact;print-color-adjust:exact;break-before:page}.section-num{-webkit-print-color-adjust:exact;print-color-adjust:exact}.ws-badge{-webkit-print-color-adjust:exact;print-color-adjust:exact}.info-box{-webkit-print-color-adjust:exact;print-color-adjust:exact}.diff-support{-webkit-print-color-adjust:exact;print-color-adjust:exact}.draw-box{break-inside:avoid;min-height:120px}.question{break-inside:avoid}.eval-card{break-inside:avoid}.progress-bar{display:none}.remove-img{display:none!important}}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="toolbar-left">
+    <span class="toolbar-title">Y10 Design Portfolio</span>
+    <span class="save-indicator" id="saveIndicator">All changes saved</span>
+  </div>
+  <div class="toolbar-right">
+    <button class="btn-share" onclick="shareLink()">&#128279; Share Link</button>
+    <button class="btn-pdf" onclick="savePDF()">Save as PDF</button>
+    <button class="btn-clear" onclick="clearAll()">Clear All</button>
+  </div>
+</div>
+
+<div class="portfolio">
+
+  <header class="ws-header">
+    <span class="ws-badge">ASSESSMENT TASK 1</span>
+    <h1 class="ws-title">Design Portfolio</h1>
+    <p class="ws-subtitle">Industrial Technology Multimedia &mdash; Mobile App Design &ldquo;Appyness&rdquo;</p>
+    <div class="ws-meta">
+      <div><label for="studentName">Student Name</label><input type="text" id="studentName" data-save="studentName" placeholder="Enter your name"></div>
+      <div><label for="studentClass">Class</label><input type="text" id="studentClass" data-save="studentClass" placeholder="e.g. 10IMMYA" style="width:120px"></div>
+      <div><label for="studentDate">Date</label><input type="text" id="studentDate" data-save="studentDate" placeholder="DD / MM / 2026" style="width:140px"></div>
+    </div>
+  </header>
+
+  <!-- Progress -->
+  <div class="progress-bar">
+    <span class="progress-label">Portfolio Progress</span>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <span class="progress-pct" id="progressPct">0%</span>
+  </div>
+
+  <!-- ==================== SECTION 1 ==================== -->
+  <div class="section-divider s1">
+    <div class="section-num">1</div>
+    <div class="section-divider-text">
+      <h2>STATEMENT OF INTENT &amp; RESEARCH</h2>
+      <p><span class="marks">5 marks</span> &bull; IND5-5, IND5-8</p>
+    </div>
+  </div>
+
+  <section class="content">
+
+    <div class="info-box">
+      <strong>What is a Statement of Intent?</strong> It explains the PURPOSE of your app &mdash; who it is for, what problem it solves, and why it matters. This is the foundation of your entire design process.
+    </div>
+
+    <div class="question">
+      <p>1.1 &mdash; App Name</p>
+      <p class="hint">What is the name of your app? Choose something memorable and relevant to its purpose.</p>
+      <input type="text" data-save="s1appName" placeholder="e.g. StudyBuddy, FitTrack, PetPal...">
+    </div>
+
+    <div class="question">
+      <p>1.2 &mdash; Statement of Intent</p>
+      <p class="hint">Explain your app idea clearly. What does it do? Who is it for? What problem or need does it address?</p>
+      <div class="diff-support">
+        <div class="diff-label">&#127793; Sentence starters</div>
+        <p style="font-size:.85rem;margin-top:4px">
+          &bull; <em>My app is called _____ and it is designed to...</em><br>
+          &bull; <em>The target audience for this app is...</em><br>
+          &bull; <em>This app solves the problem of...</em><br>
+          &bull; <em>Users will benefit from this app because...</em>
+        </p>
+      </div>
+      <textarea data-save="s1intent" class="tall" placeholder="My app is designed to... It targets... The problem it solves is..."></textarea>
+    </div>
+
+    <div class="question">
+      <p>1.3 &mdash; Target Audience</p>
+      <p class="hint">Describe your ideal user. Consider their age, interests, needs, and how they would use your app.</p>
+      <textarea data-save="s1audience" placeholder="My target audience is... They would use this app because..."></textarea>
+    </div>
+
+    <div class="question">
+      <p>1.4 &mdash; Research: Existing Apps</p>
+      <p class="hint">Find 2 existing apps that are similar to your idea. Describe what they do well and what could be improved. Take a screenshot of each app.</p>
+
+      <div class="sub-label">App 1</div>
+      <input type="text" data-save="s1app1name" placeholder="App name (e.g. Duolingo, Headspace...)" style="margin-bottom:8px">
+      <textarea data-save="s1app1analysis" class="short" placeholder="What this app does well... What could be improved..."></textarea>
+      <div class="draw-box" id="drawApp1" onclick="triggerUpload('fileApp1')">
+        <input type="file" id="fileApp1" accept="image/*" onchange="loadImage(event,'drawApp1','imgApp1')">
+        <button class="remove-img" onclick="removeImage(event,'drawApp1','imgApp1')" title="Remove image">&times;</button>
+        <span id="imgApp1Label">&#128247; Upload screenshot of App 1</span>
+      </div>
+
+      <div class="sub-label" style="margin-top:14px">App 2</div>
+      <input type="text" data-save="s1app2name" placeholder="App name" style="margin-bottom:8px">
+      <textarea data-save="s1app2analysis" class="short" placeholder="What this app does well... What could be improved..."></textarea>
+      <div class="draw-box" id="drawApp2" onclick="triggerUpload('fileApp2')">
+        <input type="file" id="fileApp2" accept="image/*" onchange="loadImage(event,'drawApp2','imgApp2')">
+        <button class="remove-img" onclick="removeImage(event,'drawApp2','imgApp2')" title="Remove image">&times;</button>
+        <span id="imgApp2Label">&#128247; Upload screenshot of App 2</span>
+      </div>
+    </div>
+
+    <div class="question">
+      <p>1.5 &mdash; PMI Analysis of Your Favourite Existing App</p>
+      <p class="hint">Choose your favourite app from above and analyse it using Plus, Minus, Interesting.</p>
+      <div class="pmi-grid">
+        <div class="pmi-col pmi-plus">
+          <h4>&#10133; Plus (strengths)</h4>
+          <textarea data-save="s1pmiP" placeholder="What works well about this app's design?"></textarea>
+        </div>
+        <div class="pmi-col pmi-minus">
+          <h4>&#10134; Minus (weaknesses)</h4>
+          <textarea data-save="s1pmiM" placeholder="What could be improved?"></textarea>
+        </div>
+        <div class="pmi-col pmi-int">
+          <h4>&#10067; Interesting</h4>
+          <textarea data-save="s1pmiI" placeholder="What is unique or surprising about this app?"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="question">
+      <p>1.6 &mdash; Key Features List</p>
+      <p class="hint">List the main features your app will include. Think about what screens you need and what each one does.</p>
+      <table class="scale-table">
+        <tr><th style="width:30%">Feature / Screen</th><th style="width:40%">What It Does</th><th>Why Users Need It</th></tr>
+        <tr><td><input type="text" data-save="s1feat1a" placeholder="e.g. Home Screen"></td><td><input type="text" data-save="s1feat1b" placeholder="e.g. Shows daily summary"></td><td><input type="text" data-save="s1feat1c" placeholder="e.g. Quick overview"></td></tr>
+        <tr><td><input type="text" data-save="s1feat2a"></td><td><input type="text" data-save="s1feat2b"></td><td><input type="text" data-save="s1feat2c"></td></tr>
+        <tr><td><input type="text" data-save="s1feat3a"></td><td><input type="text" data-save="s1feat3b"></td><td><input type="text" data-save="s1feat3c"></td></tr>
+        <tr><td><input type="text" data-save="s1feat4a"></td><td><input type="text" data-save="s1feat4b"></td><td><input type="text" data-save="s1feat4c"></td></tr>
+        <tr><td><input type="text" data-save="s1feat5a"></td><td><input type="text" data-save="s1feat5b"></td><td><input type="text" data-save="s1feat5c"></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 2 ==================== -->
+  <div class="section-divider s2">
+    <div class="section-num">2</div>
+    <div class="section-divider-text">
+      <h2>DESIGN DEVELOPMENT</h2>
+      <p><span class="marks">5 marks</span> &bull; IND5-2</p>
+    </div>
+  </div>
+
+  <section class="content">
+
+    <div class="info-box">
+      <strong>Design Development</strong> shows your creative thinking process &mdash; from brainstorming ideas to rough sketches to refined wireframes. Show how your app idea evolved!
+    </div>
+
+    <div class="question">
+      <p>2.1 &mdash; Mind Map / Brainstorm</p>
+      <p class="hint">Create a mind map exploring your app ideas &mdash; features, screens, user flow, visual ideas. You can draw this on paper or use a digital tool, then upload a screenshot.</p>
+      <div class="draw-box" id="drawMindMap" onclick="triggerUpload('fileMindMap')">
+        <input type="file" id="fileMindMap" accept="image/*" onchange="loadImage(event,'drawMindMap','imgMindMap')">
+        <button class="remove-img" onclick="removeImage(event,'drawMindMap','imgMindMap')" title="Remove image">&times;</button>
+        <span id="imgMindMapLabel">&#128247; Upload mind map / brainstorm image</span>
+      </div>
+    </div>
+
+    <div class="question">
+      <p>2.2 &mdash; Rough Wireframe Sketches</p>
+      <p class="hint">Draw rough wireframes (simple box layouts) for at least 4 screens of your app. Label each screen and show where buttons, text, and images will go. You can sketch on paper and photograph it.</p>
+
+      <div class="two-col">
+        <div class="col-box">
+          <h4>Screen 1</h4>
+          <input type="text" data-save="s2wire1name" placeholder="Screen name (e.g. Home)" style="margin-bottom:8px">
+          <div class="draw-box" id="drawWire1" onclick="triggerUpload('fileWire1')" style="min-height:180px">
+            <input type="file" id="fileWire1" accept="image/*" onchange="loadImage(event,'drawWire1','imgWire1')">
+            <button class="remove-img" onclick="removeImage(event,'drawWire1','imgWire1')" title="Remove">&times;</button>
+            <span id="imgWire1Label">&#128247; Upload wireframe</span>
+          </div>
+        </div>
+        <div class="col-box">
+          <h4>Screen 2</h4>
+          <input type="text" data-save="s2wire2name" placeholder="Screen name" style="margin-bottom:8px">
+          <div class="draw-box" id="drawWire2" onclick="triggerUpload('fileWire2')" style="min-height:180px">
+            <input type="file" id="fileWire2" accept="image/*" onchange="loadImage(event,'drawWire2','imgWire2')">
+            <button class="remove-img" onclick="removeImage(event,'drawWire2','imgWire2')" title="Remove">&times;</button>
+            <span id="imgWire2Label">&#128247; Upload wireframe</span>
+          </div>
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="col-box">
+          <h4>Screen 3</h4>
+          <input type="text" data-save="s2wire3name" placeholder="Screen name" style="margin-bottom:8px">
+          <div class="draw-box" id="drawWire3" onclick="triggerUpload('fileWire3')" style="min-height:180px">
+            <input type="file" id="fileWire3" accept="image/*" onchange="loadImage(event,'drawWire3','imgWire3')">
+            <button class="remove-img" onclick="removeImage(event,'drawWire3','imgWire3')" title="Remove">&times;</button>
+            <span id="imgWire3Label">&#128247; Upload wireframe</span>
+          </div>
+        </div>
+        <div class="col-box">
+          <h4>Screen 4</h4>
+          <input type="text" data-save="s2wire4name" placeholder="Screen name" style="margin-bottom:8px">
+          <div class="draw-box" id="drawWire4" onclick="triggerUpload('fileWire4')" style="min-height:180px">
+            <input type="file" id="fileWire4" accept="image/*" onchange="loadImage(event,'drawWire4','imgWire4')">
+            <button class="remove-img" onclick="removeImage(event,'drawWire4','imgWire4')" title="Remove">&times;</button>
+            <span id="imgWire4Label">&#128247; Upload wireframe</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="question">
+      <p>2.3 &mdash; User Flow Diagram</p>
+      <p class="hint">Show how a user navigates through your app. Draw arrows between screens to show the flow. You can sketch this on paper or use a tool like Figma.</p>
+      <div class="draw-box" id="drawUserFlow" onclick="triggerUpload('fileUserFlow')">
+        <input type="file" id="fileUserFlow" accept="image/*" onchange="loadImage(event,'drawUserFlow','imgUserFlow')">
+        <button class="remove-img" onclick="removeImage(event,'drawUserFlow','imgUserFlow')" title="Remove image">&times;</button>
+        <span id="imgUserFlowLabel">&#128247; Upload user flow diagram</span>
+      </div>
+    </div>
+
+    <div class="question">
+      <p>2.4 &mdash; Design Decisions</p>
+      <p class="hint">Explain the design choices you made. Why did you choose this layout? What did you change from your initial ideas and why?</p>
+      <textarea data-save="s2decisions" class="tall" placeholder="I chose this layout because...&#10;&#10;I changed my original idea by...&#10;&#10;The reason for this change was..."></textarea>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 3 ==================== -->
+  <div class="section-divider s3">
+    <div class="section-num">3</div>
+    <div class="section-divider-text">
+      <h2>DESIGN ANNOTATIONS &amp; FIGMA MOCKUPS</h2>
+      <p><span class="marks">3 marks</span> &bull; IND5-2, IND5-4</p>
+    </div>
+  </div>
+
+  <section class="content">
+
+    <div class="info-box">
+      <strong>Design Annotations</strong> show that you understand the design principles behind your choices. Use correct terminology &mdash; elements (line, shape, colour, texture, space) and principles (contrast, alignment, repetition, proximity, hierarchy).
+    </div>
+
+    <div class="question">
+      <p>3.1 &mdash; Colour Palette</p>
+      <p class="hint">What colours did you choose for your app? List the main colours and explain why you chose them (mood, brand, accessibility).</p>
+      <div class="diff-support">
+        <div class="diff-label">&#127793; Design vocabulary</div>
+        <div class="word-bank">
+          <span onclick="copyWord(this)">contrast</span>
+          <span onclick="copyWord(this)">harmony</span>
+          <span onclick="copyWord(this)">complementary</span>
+          <span onclick="copyWord(this)">analogous</span>
+          <span onclick="copyWord(this)">warm colours</span>
+          <span onclick="copyWord(this)">cool colours</span>
+          <span onclick="copyWord(this)">readability</span>
+          <span onclick="copyWord(this)">brand identity</span>
+          <span onclick="copyWord(this)">accessibility</span>
+          <span onclick="copyWord(this)">hierarchy</span>
+        </div>
+      </div>
+      <textarea data-save="s3colours" placeholder="My primary colour is ___ because...&#10;My secondary colour is ___ because...&#10;I chose these colours together because..."></textarea>
+    </div>
+
+    <div class="question">
+      <p>3.2 &mdash; Typography Choices</p>
+      <p class="hint">What fonts did you choose for headings and body text? Why are they appropriate for your app?</p>
+      <textarea data-save="s3typography" class="short" placeholder="For headings I chose ___ because...&#10;For body text I used ___ because..."></textarea>
+    </div>
+
+    <div class="question">
+      <p>3.3 &mdash; Figma High-Fidelity Mockups</p>
+      <p class="hint">Upload screenshots of your Figma mockups. These should be polished versions of your wireframes with real colours, fonts, icons, and images. Upload at least 2 key screens.</p>
+
+      <div class="sub-label">Figma Mockup &mdash; Key Screen 1</div>
+      <div class="draw-box" id="drawFigma1" onclick="triggerUpload('fileFigma1')">
+        <input type="file" id="fileFigma1" accept="image/*" onchange="loadImage(event,'drawFigma1','imgFigma1')">
+        <button class="remove-img" onclick="removeImage(event,'drawFigma1','imgFigma1')" title="Remove">&times;</button>
+        <span id="imgFigma1Label">&#128247; Upload Figma mockup (Screen 1)</span>
+      </div>
+
+      <div class="sub-label" style="margin-top:14px">Figma Mockup &mdash; Key Screen 2</div>
+      <div class="draw-box" id="drawFigma2" onclick="triggerUpload('fileFigma2')">
+        <input type="file" id="fileFigma2" accept="image/*" onchange="loadImage(event,'drawFigma2','imgFigma2')">
+        <button class="remove-img" onclick="removeImage(event,'drawFigma2','imgFigma2')" title="Remove">&times;</button>
+        <span id="imgFigma2Label">&#128247; Upload Figma mockup (Screen 2)</span>
+      </div>
+
+      <div class="sub-label" style="margin-top:14px">Additional Mockup (optional)</div>
+      <div class="draw-box" id="drawFigma3" onclick="triggerUpload('fileFigma3')">
+        <input type="file" id="fileFigma3" accept="image/*" onchange="loadImage(event,'drawFigma3','imgFigma3')">
+        <button class="remove-img" onclick="removeImage(event,'drawFigma3','imgFigma3')" title="Remove">&times;</button>
+        <span id="imgFigma3Label">&#128247; Upload additional mockup (optional)</span>
+      </div>
+    </div>
+
+    <div class="question">
+      <p>3.4 &mdash; Design Annotations</p>
+      <p class="hint">Annotate your design by explaining the design principles and elements you used. Reference specific parts of your mockups.</p>
+      <textarea data-save="s3annotations" class="tall" placeholder="In my home screen, I used CONTRAST by...&#10;&#10;I applied the principle of ALIGNMENT by...&#10;&#10;The COLOUR SCHEME creates a feeling of...&#10;&#10;I used HIERARCHY to guide the user's eye by..."></textarea>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION 4 ==================== -->
+  <div class="section-divider s4">
+    <div class="section-num">4</div>
+    <div class="section-divider-text">
+      <h2>EVALUATION</h2>
+      <p><span class="marks">2 marks</span> &bull; IND5-8</p>
+    </div>
+  </div>
+
+  <section class="content">
+    <div class="question">
+      <p>4.1 &mdash; Evaluate your design against criteria</p>
+      <p class="hint">Rate how well your app design meets each criterion. Click a rating, then explain your choice.</p>
+
+      <div class="eval-card">
+        <h4>&#127912; Visual Design</h4>
+        <p class="hint">Does your app look attractive and professional? Is the design consistent across screens?</p>
+        <div class="rank-select" data-group="evalVisual">
+          <span class="rank-btn" onclick="setRank(this)" data-val="1">1 &mdash; Poor</span>
+          <span class="rank-btn" onclick="setRank(this)" data-val="2">2 &mdash; Basic</span>
+          <span class="rank-btn" onclick="setRank(this)" data-val="3">3 &mdash; Good</span>
+          <span class="rank-btn" onclick="setRank(this)" data-val="4">4 &mdash; Very Good</span>
+          <span class="rank-btn" onclick="setRank(this)" data-val="5">5 &mdash; Excellent</span>
+        </div>
+        <textarea data-save="s4evalVisual" class="short" placeholder="I gave this rating because..."></textarea>
+      </div>
+
+      <div class="eval-card">
+        <h4>&#9881;&#65039; Functionality &amp; User Experience</h4>
+        <p class="hint">Is the app easy to navigate? Does the user flow make sense? Would a real user find it intuitive?</p>
+        <div class="rank-select" data-group="evalUX">
+          <span class="rank-btn" onclick="setRank(this)" data-val="1">1 &mdash; Poor</span>
+          <span class="rank-btn" onclick="setRank(this)" data-val="2">2 &mdash; Basic</span>
+          <span class="rank-btn" onclick="setRank(this)" data-val="3">3 &mdash; Good</span>
+          <span class="rank-btn" onclick="setRank(this)" data-val="4">4 &mdash; Very Good</span>
+          <span class="rank-btn" onclick="setRank(this)" data-val="5">5 &mdash; Excellent</span>
+        </div>
+        <textarea data-save="s4evalUX" class="short" placeholder="I gave this rating because..."></textarea>
+      </div>
+
+      <div class="eval-card">
+        <h4>&#128736;&#65039; Use of Design Principles</h4>
+        <p class="hint">Did you effectively apply design principles (contrast, alignment, hierarchy, repetition, proximity)?</p>
+        <div class="rank-select" data-group="evalPrinciples">
+          <span class="rank-btn" onclick="setRank(this)" data-val="1">1 &mdash; Poor</span>
+          <span class="rank-btn" onclick="setRank(this)" data-val="2">2 &mdash; Basic</span>
+          <span class="rank-btn" onclick="setRank(this)" data-val="3">3 &mdash; Good</span>
+          <span class="rank-btn" onclick="setRank(this)" data-val="4">4 &mdash; Very Good</span>
+          <span class="rank-btn" onclick="setRank(this)" data-val="5">5 &mdash; Excellent</span>
+        </div>
+        <textarea data-save="s4evalPrinciples" class="short" placeholder="I gave this rating because..."></textarea>
+      </div>
+    </div>
+
+    <div class="question">
+      <p>4.2 &mdash; Comparison: Design vs Final App</p>
+      <p class="hint">Compare your original design (Figma mockup) with your final Adalo app. What changed? What stayed the same? Why?</p>
+      <textarea data-save="s4comparison" class="tall" placeholder="Comparing my Figma design to my final Adalo app...&#10;&#10;What stayed the same:&#10;&#10;What changed:&#10;&#10;The reason for these changes was:"></textarea>
+    </div>
+
+    <div class="question">
+      <p>4.3 &mdash; What I Would Improve</p>
+      <p class="hint">If you had more time or could start again, what would you change about your design or app?</p>
+      <textarea data-save="s4improve" placeholder="If I could improve my design, I would...&#10;&#10;This would make it better because..."></textarea>
+    </div>
+
+    <div class="question">
+      <p>4.4 &mdash; Reflection on the Design Process</p>
+      <p class="hint">Reflect on what you learned. What was most challenging? What skills did you develop? How did the design process help you create a better app?</p>
+      <textarea data-save="s4reflect" class="tall" placeholder="The most challenging part of this project was...&#10;&#10;Through this project, I developed skills in...&#10;&#10;The design process helped me create a better app because..."></textarea>
+    </div>
+  </section>
+
+  <!-- ==================== FINAL CHECKLIST ==================== -->
+  <section class="content" style="background:var(--bg)">
+    <h3 style="font-family:var(--font-heading);color:var(--blue);margin-bottom:16px">&#9989; Final Submission Checklist</h3>
+    <p style="font-size:.9rem;margin-bottom:14px">Before you submit, make sure you have completed everything. Tick each item below.</p>
+
+    <div class="checklist">
+      <p style="font-weight:700;color:var(--orange);margin-bottom:8px">Section 1 &mdash; Statement of Intent &amp; Research (5 marks)</p>
+      <div class="check-item"><input type="checkbox" id="fc1" data-save="fc1"><label for="fc1">Written app name and statement of intent</label></div>
+      <div class="check-item"><input type="checkbox" id="fc2" data-save="fc2"><label for="fc2">Described target audience</label></div>
+      <div class="check-item"><input type="checkbox" id="fc3" data-save="fc3"><label for="fc3">Researched 2 existing apps with screenshots</label></div>
+      <div class="check-item"><input type="checkbox" id="fc4" data-save="fc4"><label for="fc4">Completed PMI analysis</label></div>
+      <div class="check-item"><input type="checkbox" id="fc5" data-save="fc5"><label for="fc5">Listed key features</label></div>
+
+      <p style="font-weight:700;color:var(--green);margin:14px 0 8px">Section 2 &mdash; Design Development (5 marks)</p>
+      <div class="check-item"><input type="checkbox" id="fc6" data-save="fc6"><label for="fc6">Uploaded mind map / brainstorm</label></div>
+      <div class="check-item"><input type="checkbox" id="fc7" data-save="fc7"><label for="fc7">Uploaded wireframe sketches for 4 screens</label></div>
+      <div class="check-item"><input type="checkbox" id="fc8" data-save="fc8"><label for="fc8">Uploaded user flow diagram</label></div>
+      <div class="check-item"><input type="checkbox" id="fc9" data-save="fc9"><label for="fc9">Explained design decisions</label></div>
+
+      <p style="font-weight:700;color:var(--blue);margin:14px 0 8px">Section 3 &mdash; Design Annotations &amp; Figma (3 marks)</p>
+      <div class="check-item"><input type="checkbox" id="fc10" data-save="fc10"><label for="fc10">Described colour palette with reasoning</label></div>
+      <div class="check-item"><input type="checkbox" id="fc11" data-save="fc11"><label for="fc11">Described typography choices</label></div>
+      <div class="check-item"><input type="checkbox" id="fc12" data-save="fc12"><label for="fc12">Uploaded at least 2 Figma mockup screenshots</label></div>
+      <div class="check-item"><input type="checkbox" id="fc13" data-save="fc13"><label for="fc13">Written design annotations using correct terminology</label></div>
+
+      <p style="font-weight:700;color:var(--purple);margin:14px 0 8px">Section 4 &mdash; Evaluation (2 marks)</p>
+      <div class="check-item"><input type="checkbox" id="fc14" data-save="fc14"><label for="fc14">Evaluated design against all 3 criteria with ratings</label></div>
+      <div class="check-item"><input type="checkbox" id="fc15" data-save="fc15"><label for="fc15">Compared Figma design to final Adalo app</label></div>
+      <div class="check-item"><input type="checkbox" id="fc16" data-save="fc16"><label for="fc16">Written what you would improve</label></div>
+      <div class="check-item"><input type="checkbox" id="fc17" data-save="fc17"><label for="fc17">Written reflection on the design process</label></div>
+    </div>
+  </section>
+
+  <footer class="ws-footer">
+    <span><strong>Year 10 Industrial Technology Multimedia</strong> &mdash; Arthur Phillip High School &mdash; 2026</span>
+    <span>10IMMYA &mdash; Assessment Task 1</span>
+  </footer>
+
+</div>
+
+<script>
+const STORAGE_KEY = 'y10-multimedia-design-portfolio';
+const IMAGE_STORAGE_KEY = 'y10-multimedia-design-portfolio-images';
+let saveTimeout;
+
+// ── Auto-save ──
+function triggerSave(){
+  const ind = document.getElementById('saveIndicator');
+  ind.textContent = 'Saving...';
+  ind.classList.add('saving');
+  clearTimeout(saveTimeout);
+  saveTimeout = setTimeout(()=>{
+    saveData();
+    ind.textContent = 'All changes saved';
+    ind.classList.remove('saving');
+  }, 500);
+}
+
+function saveData(){
+  const data = {};
+  document.querySelectorAll('[data-save]').forEach(el=>{
+    const key = el.dataset.save;
+    if(el.type === 'checkbox') data[key] = el.checked;
+    else data[key] = el.value;
+  });
+  // Save rank selections
+  document.querySelectorAll('.rank-btn.active').forEach(btn=>{
+    const group = btn.parentElement.dataset.group;
+    data['rank_'+group] = btn.dataset.val;
+  });
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+
+  // Save images separately (they can be large)
+  const imgData = {};
+  document.querySelectorAll('.draw-box.has-image img').forEach(img=>{
+    const boxId = img.closest('.draw-box').id;
+    imgData[boxId] = img.src;
+  });
+  try {
+    localStorage.setItem(IMAGE_STORAGE_KEY, JSON.stringify(imgData));
+  } catch(e) {
+    // localStorage might be full for large images
+    console.warn('Could not save images to localStorage (storage may be full). Images will be lost on page reload.');
+    const ind = document.getElementById('saveIndicator');
+    ind.textContent = 'Text saved (images too large for browser storage)';
+    ind.classList.add('saving');
+  }
+  updateProgress();
+}
+
+function loadData(){
+  // Load text data
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if(raw){
+    try{
+      const data = JSON.parse(raw);
+      document.querySelectorAll('[data-save]').forEach(el=>{
+        const key = el.dataset.save;
+        if(key in data){
+          if(el.type === 'checkbox') el.checked = data[key];
+          else el.value = data[key];
+        }
+      });
+      // Restore ranks
+      Object.keys(data).forEach(k=>{
+        if(k.startsWith('rank_')){
+          const group = k.replace('rank_','');
+          const container = document.querySelector('[data-group="'+group+'"]');
+          if(container){
+            container.querySelectorAll('.rank-btn').forEach(b=>{
+              if(b.dataset.val === data[k]) b.classList.add('active');
+            });
+          }
+        }
+      });
+    }catch(e){}
+  }
+
+  // Load images
+  const imgRaw = localStorage.getItem(IMAGE_STORAGE_KEY);
+  if(imgRaw){
+    try{
+      const imgData = JSON.parse(imgRaw);
+      Object.keys(imgData).forEach(boxId=>{
+        const box = document.getElementById(boxId);
+        if(box && imgData[boxId]){
+          const label = box.querySelector('span');
+          if(label) label.style.display = 'none';
+          const existing = box.querySelector('img');
+          if(existing) existing.remove();
+          const img = document.createElement('img');
+          img.src = imgData[boxId];
+          box.appendChild(img);
+          box.classList.add('has-image');
+        }
+      });
+    }catch(e){}
+  }
+
+  updateProgress();
+}
+
+// ── Event listeners ──
+document.querySelectorAll('[data-save]').forEach(el=>{
+  el.addEventListener('input', triggerSave);
+  el.addEventListener('change', triggerSave);
+});
+
+// ── Rank selection ──
+function setRank(btn){
+  btn.parentElement.querySelectorAll('.rank-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  triggerSave();
+}
+
+// ── Image upload ──
+function triggerUpload(fileInputId){
+  document.getElementById(fileInputId).click();
+}
+
+function loadImage(event, boxId, labelId){
+  event.stopPropagation();
+  const file = event.target.files[0];
+  if(!file) return;
+
+  // Compress large images before storing
+  const reader = new FileReader();
+  reader.onload = function(e){
+    const img = new Image();
+    img.onload = function(){
+      // Resize if too large (max 1200px width for storage efficiency)
+      let src = e.target.result;
+      if(img.width > 1200){
+        const canvas = document.createElement('canvas');
+        const ratio = 1200 / img.width;
+        canvas.width = 1200;
+        canvas.height = img.height * ratio;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        src = canvas.toDataURL('image/jpeg', 0.8);
+      }
+
+      const box = document.getElementById(boxId);
+      const label = document.getElementById(labelId+'Label');
+      if(label) label.style.display = 'none';
+      const existing = box.querySelector('img');
+      if(existing) existing.remove();
+      const imgElem = document.createElement('img');
+      imgElem.src = src;
+      imgElem.id = labelId;
+      box.appendChild(imgElem);
+      box.classList.add('has-image');
+      triggerSave();
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+function removeImage(event, boxId, labelId){
+  event.stopPropagation();
+  event.preventDefault();
+  const box = document.getElementById(boxId);
+  const img = box.querySelector('img');
+  if(img) img.remove();
+  box.classList.remove('has-image');
+  const label = document.getElementById(labelId+'Label');
+  if(label) label.style.display = '';
+  // Reset the file input
+  const fileInput = box.querySelector('input[type="file"]');
+  if(fileInput) fileInput.value = '';
+  triggerSave();
+}
+
+// ── Word bank copy ──
+function copyWord(span){
+  const text = span.textContent;
+  navigator.clipboard.writeText(text).then(()=>{
+    span.style.background = 'var(--green)';
+    span.style.color = 'white';
+    setTimeout(()=>{span.style.background='';span.style.color='';},600);
+  });
+}
+
+// ── Progress tracking ──
+function updateProgress(){
+  const fields = document.querySelectorAll('[data-save]');
+  let filled = 0, total = 0;
+  fields.forEach(el=>{
+    // Skip final checklist items for progress count
+    if(el.id && el.id.startsWith('fc')) return;
+    total++;
+    if(el.type === 'checkbox'){
+      if(el.checked) filled++;
+    } else if(el.value && el.value.trim().length > 0){
+      filled++;
+    }
+  });
+  // Count images
+  const imageBoxes = document.querySelectorAll('.draw-box');
+  imageBoxes.forEach(box=>{
+    total++;
+    if(box.classList.contains('has-image')) filled++;
+  });
+  const pct = total > 0 ? Math.round((filled/total)*100) : 0;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressPct').textContent = pct + '%';
+}
+
+// ── Share link ──
+function shareLink(){
+  const data = {};
+  document.querySelectorAll('[data-save]').forEach(el=>{
+    const key = el.dataset.save;
+    if(el.type === 'checkbox') data[key] = el.checked;
+    else if(el.value && el.value.trim()) data[key] = el.value;
+  });
+  document.querySelectorAll('.rank-btn.active').forEach(btn=>{
+    const group = btn.parentElement.dataset.group;
+    data['rank_'+group] = btn.dataset.val;
+  });
+
+  const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(data))));
+  const url = window.location.origin + window.location.pathname + '#data=' + encoded;
+
+  navigator.clipboard.writeText(url).then(()=>{
+    alert('Link copied to clipboard!\\n\\nShare this link with your teacher to show your progress.\\n\\nNote: Images are saved locally in your browser and will NOT be shared via the link. Submit your portfolio as a PDF (Save as PDF button) to include images.');
+  }).catch(()=>{
+    prompt('Copy this link and share it with your teacher:', url);
+  });
+}
+
+// ── Load from URL hash ──
+function loadFromHash(){
+  const hash = window.location.hash;
+  if(!hash.startsWith('#data=')) return;
+  try{
+    const encoded = hash.substring(6);
+    const data = JSON.parse(decodeURIComponent(escape(atob(encoded))));
+    document.querySelectorAll('[data-save]').forEach(el=>{
+      const key = el.dataset.save;
+      if(key in data){
+        if(el.type === 'checkbox') el.checked = data[key];
+        else el.value = data[key];
+      }
+    });
+    Object.keys(data).forEach(k=>{
+      if(k.startsWith('rank_')){
+        const group = k.replace('rank_','');
+        const container = document.querySelector('[data-group="'+group+'"]');
+        if(container){
+          container.querySelectorAll('.rank-btn').forEach(b=>{
+            if(b.dataset.val === data[k]) b.classList.add('active');
+          });
+        }
+      }
+    });
+    updateProgress();
+  }catch(e){
+    console.warn('Could not load data from URL');
+  }
+}
+
+// ── PDF ──
+function savePDF(){ window.print(); }
+
+// ── Clear ──
+function clearAll(){
+  if(!confirm('Are you sure you want to clear ALL your work? This cannot be undone.')) return;
+  localStorage.removeItem(STORAGE_KEY);
+  localStorage.removeItem(IMAGE_STORAGE_KEY);
+  document.querySelectorAll('[data-save]').forEach(el=>{
+    if(el.type === 'checkbox') el.checked = false;
+    else el.value = '';
+  });
+  document.querySelectorAll('.rank-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.draw-box').forEach(box=>{
+    box.classList.remove('has-image');
+    const img = box.querySelector('img');
+    if(img) img.remove();
+    const label = box.querySelector('span');
+    if(label) label.style.display = '';
+    const fileInput = box.querySelector('input[type="file"]');
+    if(fileInput) fileInput.value = '';
+  });
+  updateProgress();
+}
+
+// ── Init ──
+loadFromHash();
+loadData();
+updateProgress();
+</script>
+</body>
+</html>
