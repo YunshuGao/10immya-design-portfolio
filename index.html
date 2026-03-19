@@ -54,9 +54,17 @@ textarea,input[type="text"]{width:100%;border:1.5px solid var(--light-grey);bord
 .two-col .col-box h4{font-family:var(--font-heading);font-size:.9rem;margin-bottom:10px;color:var(--blue)}
 
 .ws-footer{background:var(--charcoal);color:rgba(255,255,255,.7);padding:18px 36px;font-size:.78rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}.ws-footer strong{color:var(--white)}
+.btn-teacher{background:#7b1fa2;color:var(--white)}.btn-teacher.on{background:#e65100}
+.teacher-inline{display:none;margin:16px 36px;padding:12px 16px;background:#fff3e0;border:2px solid #e65100;border-radius:8px}.teacher-inline.active{display:block}.teacher-inline .sub-label{color:#e65100;font-weight:700;margin-bottom:4px}.teacher-comment{width:100%;border:1.5px solid var(--light-grey);border-radius:8px;padding:10px 14px;font-family:var(--font-body);font-size:.92rem;min-height:60px;resize:vertical}
+.teacher-panel{display:none;padding:28px 36px;background:#fff8e1;border-top:3px solid #e65100}.teacher-panel.active{display:block}
+.rubric-criterion{background:var(--white);border:1.5px solid var(--light-grey);border-radius:8px;padding:10px 14px;margin-bottom:8px}.rc-label{font-weight:700;font-size:.88rem;color:var(--charcoal);margin-bottom:2px}.rc-desc{font-size:.78rem;color:var(--grey);margin-bottom:6px}.grade-row{display:flex;gap:6px;flex-wrap:wrap}.grade-btn{min-width:36px;height:32px;display:flex;align-items:center;justify-content:center;border:2px solid var(--light-grey);border-radius:8px;font-weight:700;font-size:.85rem;cursor:pointer;transition:all .15s;background:var(--white);position:relative;padding:0 8px}.grade-btn:hover{border-color:var(--blue);color:var(--blue)}.grade-btn.sel-5{background:#4caf50;color:var(--white);border-color:#4caf50}.grade-btn.sel-4{background:#8bc34a;color:var(--white);border-color:#8bc34a}.grade-btn.sel-3{background:#ffc107;color:var(--charcoal);border-color:#ffc107}.grade-btn.sel-2{background:#ff9800;color:var(--white);border-color:#ff9800}.grade-btn.sel-1{background:#f44336;color:var(--white);border-color:#f44336}.grade-btn[data-tip]:hover::after{content:attr(data-tip);position:absolute;bottom:110%;left:50%;transform:translateX(-50%);background:var(--charcoal);color:var(--white);padding:4px 10px;border-radius:6px;font-size:.72rem;font-weight:400;white-space:nowrap;z-index:10;pointer-events:none}
+.part-mark{display:flex;align-items:center;gap:8px;margin-top:6px;font-size:.88rem;font-weight:600;color:var(--charcoal)}.mark-input{width:60px;padding:6px 10px;border:1.5px solid var(--light-grey);border-radius:6px;font-family:var(--font-body);font-size:1rem;font-weight:700;text-align:center}.rs-of{color:var(--grey);font-weight:400}
+.rubric-total{display:flex;justify-content:space-between;align-items:center;background:var(--charcoal);color:var(--white);padding:14px 20px;border-radius:8px;margin-top:14px}.total-label{font-family:var(--font-heading);font-size:1rem;letter-spacing:1px}.total-mark{font-size:1.6rem;font-weight:900}
+.grade-badge{display:inline-block;padding:4px 14px;border-radius:20px;font-family:var(--font-heading);font-size:.9rem;margin-left:10px;font-weight:700}.grade-a{background:#4caf50;color:white}.grade-b{background:#8bc34a;color:white}.grade-c{background:#ffc107;color:#2D3142}.grade-d{background:#ff9800;color:white}.grade-e{background:#f44336;color:white}
+.btn-quick{font-family:var(--font-body);font-size:.85rem;font-weight:600;border:none;border-radius:6px;padding:8px 16px;cursor:pointer;background:#1565c0;color:var(--white);transition:background .15s}.btn-quick:hover{background:#0d47a1}.btn-csv{background:#2e7d32}.btn-csv:hover{background:#1b5e20}.btn-print{background:#6a6a6a}.btn-print:hover{background:#444}
 
 @media (max-width:700px){section.content{padding:20px 18px}.ws-header{padding:24px 18px 20px}.section-divider{padding:16px 18px}.pmi-grid{grid-template-columns:1fr}.two-col{grid-template-columns:1fr}.ws-meta input{width:150px}.progress-bar{padding:10px 18px}}
-@media print{@page{size:A4;margin:15mm 12mm}body{padding-top:0;background:white;font-size:12px}.toolbar{display:none!important}.portfolio{max-width:100%;margin:0;box-shadow:none;border-radius:0}.ws-header{padding:20px 24px 16px;-webkit-print-color-adjust:exact;print-color-adjust:exact}.ws-header::after{display:none}section.content{padding:16px 24px}.ws-footer{-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:12px 24px}textarea,input[type="text"]{border:1.5px solid #ccc;min-height:50px;background:white!important}.section-divider{-webkit-print-color-adjust:exact;print-color-adjust:exact;break-before:page}.section-num{-webkit-print-color-adjust:exact;print-color-adjust:exact}.ws-badge{-webkit-print-color-adjust:exact;print-color-adjust:exact}.info-box{-webkit-print-color-adjust:exact;print-color-adjust:exact}.diff-support{-webkit-print-color-adjust:exact;print-color-adjust:exact}.draw-box{break-inside:avoid;min-height:120px}.question{break-inside:avoid}.eval-card{break-inside:avoid}.progress-bar{display:none}.remove-img{display:none!important}}
+@media print{@page{size:A4;margin:15mm 12mm}body{padding-top:0;background:white;font-size:12px}.toolbar{display:none!important}.portfolio{max-width:100%;margin:0;box-shadow:none;border-radius:0}.ws-header{padding:20px 24px 16px;-webkit-print-color-adjust:exact;print-color-adjust:exact}.ws-header::after{display:none}section.content{padding:16px 24px}.ws-footer{-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:12px 24px}textarea,input[type="text"]{border:1.5px solid #ccc;min-height:50px;background:white!important}.section-divider{-webkit-print-color-adjust:exact;print-color-adjust:exact;break-before:page}.section-num{-webkit-print-color-adjust:exact;print-color-adjust:exact}.ws-badge{-webkit-print-color-adjust:exact;print-color-adjust:exact}.info-box{-webkit-print-color-adjust:exact;print-color-adjust:exact}.diff-support{-webkit-print-color-adjust:exact;print-color-adjust:exact}.draw-box{break-inside:avoid;min-height:120px}.question{break-inside:avoid}.eval-card{break-inside:avoid}.progress-bar{display:none}.remove-img{display:none!important}.teacher-inline,.teacher-panel{display:none!important}.teacher-inline.active.print-show{display:block!important;border:none;background:none;padding:4px 0}.teacher-panel.active.print-show{display:block!important;break-before:page}}
 </style>
 </head>
 <body>
@@ -67,7 +75,10 @@ textarea,input[type="text"]{width:100%;border:1.5px solid var(--light-grey);bord
     <span class="save-indicator" id="saveIndicator">All changes saved</span>
   </div>
   <div class="toolbar-right">
-    <button class="btn-share" onclick="shareLink()">&#128279; Share Link</button>
+    <button class="btn-teacher" id="btnTeacher" onclick="toggleTeacher()">&#128273; Teacher Mode</button>
+    <button class="btn-teacher" id="btnLoadFile" style="display:none;background:#0277bd" onclick="document.getElementById('jsonInput').click()">&#128194; Load Student File</button>
+    <input type="file" id="jsonInput" accept=".json" style="display:none" onchange="loadSubmissionFile(this.files[0])">
+    <button class="btn-share" onclick="submitToTeacher()">&#9989; Submit to Teacher</button>
     <button class="btn-pdf" onclick="savePDF()">Save as PDF</button>
     <button class="btn-clear" onclick="clearAll()">Clear All</button>
   </div>
@@ -190,6 +201,7 @@ textarea,input[type="text"]{width:100%;border:1.5px solid var(--light-grey);bord
       </table>
     </div>
   </section>
+  <div class="teacher-inline" id="ti-s1"><div class="sub-label">Teacher comment &mdash; Section 1</div><textarea class="teacher-comment" id="tc-s1" placeholder="Feedback on app concept, research..." oninput="saveTeacherData()"></textarea></div>
 
   <!-- ==================== SECTION 2 ==================== -->
   <div class="section-divider s2">
@@ -278,6 +290,7 @@ textarea,input[type="text"]{width:100%;border:1.5px solid var(--light-grey);bord
       <textarea data-save="s2decisions" class="tall" placeholder="I chose this layout because...&#10;&#10;I changed my original idea by...&#10;&#10;The reason for this change was..."></textarea>
     </div>
   </section>
+  <div class="teacher-inline" id="ti-s2"><div class="sub-label">Teacher comment &mdash; Section 2</div><textarea class="teacher-comment" id="tc-s2" placeholder="Feedback on research, PMI analysis, design development..." oninput="saveTeacherData()"></textarea></div>
 
   <!-- ==================== SECTION 3 ==================== -->
   <div class="section-divider s3">
@@ -353,6 +366,7 @@ textarea,input[type="text"]{width:100%;border:1.5px solid var(--light-grey);bord
       <textarea data-save="s3annotations" class="tall" placeholder="In my home screen, I used CONTRAST by...&#10;&#10;I applied the principle of ALIGNMENT by...&#10;&#10;The COLOUR SCHEME creates a feeling of...&#10;&#10;I used HIERARCHY to guide the user's eye by..."></textarea>
     </div>
   </section>
+  <div class="teacher-inline" id="ti-s3"><div class="sub-label">Teacher comment &mdash; Section 3</div><textarea class="teacher-comment" id="tc-s3" placeholder="Feedback on design decisions, annotations..." oninput="saveTeacherData()"></textarea></div>
 
   <!-- ==================== SECTION 4 ==================== -->
   <div class="section-divider s4">
@@ -459,6 +473,114 @@ textarea,input[type="text"]{width:100%;border:1.5px solid var(--light-grey);bord
       <div class="check-item"><input type="checkbox" id="fc17" data-save="fc17"><label for="fc17">Written reflection on the design process</label></div>
     </div>
   </section>
+  <div class="teacher-inline" id="ti-s4"><div class="sub-label">Teacher comment &mdash; Section 4</div><textarea class="teacher-comment" id="tc-s4" placeholder="Feedback on evaluation, reflection..." oninput="saveTeacherData()"></textarea></div>
+
+  <!-- ==================== TEACHER MARKING PANEL ==================== -->
+  <div class="teacher-panel" id="teacherPanel">
+    <h3 style="font-family:var(--font-heading);color:#e65100;margin-bottom:4px">Marking Rubric</h3>
+    <p style="font-size:.82rem;color:var(--grey);margin-bottom:14px">Click a grade for each criterion. Marks auto-calculate from the rubric.</p>
+
+    <!-- Part A — Design Folio /15 -->
+    <div style="margin-bottom:18px">
+      <h4 style="font-family:var(--font-heading);color:var(--orange);margin-bottom:8px">Part A &mdash; Design Folio <span style="font-weight:400;color:var(--grey)">/15</span></h4>
+
+      <div class="rubric-criterion" id="rc-a1">
+        <div class="rc-label">Statement of Intent &amp; Research (IND5-5, IND5-8)</div>
+        <div class="rc-desc">Statement of intent, target audience, user needs. Research 3+ apps with screenshots, PMI, how research informed design.</div>
+        <div class="grade-row">
+          <span class="grade-btn" onclick="setGrade('a1',5,this)" data-tip="Outstanding (5) &bull; Comprehensive, insightful, independent critical thinking">5</span>
+          <span class="grade-btn" onclick="setGrade('a1',4,this)" data-tip="High (4) &bull; Clear, good detail, genuine engagement">4</span>
+          <span class="grade-btn" onclick="setGrade('a1',3,this)" data-tip="Sound (3) &bull; Adequate, 2-3 apps, basic analysis">3</span>
+          <span class="grade-btn" onclick="setGrade('a1',2,this)" data-tip="Basic (2) &bull; Limited detail, 1-2 apps, little analysis">2</span>
+          <span class="grade-btn" onclick="setGrade('a1',1,this)" data-tip="Limited (1) &bull; Missing or incomplete">1</span>
+        </div>
+      </div>
+
+      <div class="rubric-criterion" id="rc-a2">
+        <div class="rc-label">Design Development (IND5-2)</div>
+        <div class="rc-desc">Mind map, annotated wireframe sketches, Figma mockup 3+ screens, progression from sketches to digital.</div>
+        <div class="grade-row">
+          <span class="grade-btn" onclick="setGrade('a2',5,this)" data-tip="Outstanding (5) &bull; Thorough, excellent creative thinking, iteration evident">5</span>
+          <span class="grade-btn" onclick="setGrade('a2',4,this)" data-tip="High (4) &bull; Good process, exploration, logical progression">4</span>
+          <span class="grade-btn" onclick="setGrade('a2',3,this)" data-tip="Sound (3) &bull; Adequate, basic mind map, 3 screens">3</span>
+          <span class="grade-btn" onclick="setGrade('a2',2,this)" data-tip="Basic (2) &bull; Limited, incomplete wireframes or mockup">2</span>
+          <span class="grade-btn" onclick="setGrade('a2',1,this)" data-tip="Limited (1) &bull; Minimal, missing components">1</span>
+        </div>
+      </div>
+
+      <div class="rubric-criterion" id="rc-a3">
+        <div class="rc-label">Design Annotations (IND5-2, IND5-4)</div>
+        <div class="rc-desc">Colour theory, typography, layout, contrast, hierarchy, balance. Correct design terminology.</div>
+        <div class="grade-row">
+          <span class="grade-btn" onclick="setGrade('a3',5,this)" data-tip="Outstanding (5) &bull; Deep understanding, specific examples, confident terminology">5</span>
+          <span class="grade-btn" onclick="setGrade('a3',4,this)" data-tip="High (4) &bull; Good understanding, reasoning, good terminology">4</span>
+          <span class="grade-btn" onclick="setGrade('a3',3,this)" data-tip="Sound (3) &bull; Awareness, basic reasoning, limited terminology">3</span>
+          <span class="grade-btn" onclick="setGrade('a3',2,this)" data-tip="Basic (2) &bull; Few annotations, minimal terminology">2</span>
+          <span class="grade-btn" onclick="setGrade('a3',1,this)" data-tip="Limited (1) &bull; No meaningful annotations">1</span>
+        </div>
+      </div>
+
+      <div class="rubric-criterion" id="rc-a4">
+        <div class="rc-label">Evaluation (IND5-8)</div>
+        <div class="rc-desc">Reflection on design process, comparison to brief, strengths/weaknesses, improvements for future.</div>
+        <div class="grade-row">
+          <span class="grade-btn" onclick="setGrade('a4',5,this)" data-tip="Outstanding (5) &bull; Insightful, critical, specific evidence, practical improvements">5</span>
+          <span class="grade-btn" onclick="setGrade('a4',4,this)" data-tip="High (4) &bull; Clear reflection, specific points, relevant improvements">4</span>
+          <span class="grade-btn" onclick="setGrade('a4',3,this)" data-tip="Sound (3) &bull; Adequate, some strengths/weaknesses, basic suggestions">3</span>
+          <span class="grade-btn" onclick="setGrade('a4',2,this)" data-tip="Basic (2) &bull; Brief, minimal reflection, little connection">2</span>
+          <span class="grade-btn" onclick="setGrade('a4',1,this)" data-tip="Limited (1) &bull; No meaningful evaluation">1</span>
+        </div>
+      </div>
+      <div class="part-mark">Part A mark: <input type="number" class="mark-input" id="markPartA" min="0" max="15" placeholder="-" oninput="updateTotal()"> <span class="rs-of">/ 15</span></div>
+    </div>
+
+    <!-- Part B — App Prototype /10 -->
+    <div style="margin-bottom:18px">
+      <h4 style="font-family:var(--font-heading);color:var(--blue);margin-bottom:8px">Part B &mdash; App Prototype in Adalo <span style="font-weight:400;color:var(--grey)">/10</span></h4>
+
+      <div class="rubric-criterion" id="rc-b1">
+        <div class="rc-label">Visual Design &amp; User Experience (IND5-2)</div>
+        <div class="rc-desc">Colour, typography, layout consistency. Images, icons, whitespace. Intuitive, engaging UX.</div>
+        <div class="grade-row">
+          <span class="grade-btn" onclick="setGrade('b1',5,this)" data-tip="Outstanding (9-10) &bull; Professional quality, polished, excellent UX">5</span>
+          <span class="grade-btn" onclick="setGrade('b1',4,this)" data-tip="High (7-8) &bull; Strong, consistent, user-friendly">4</span>
+          <span class="grade-btn" onclick="setGrade('b1',3,this)" data-tip="Sound (5-6) &bull; Adequate, mostly consistent, functional">3</span>
+          <span class="grade-btn" onclick="setGrade('b1',2,this)" data-tip="Basic (3-4) &bull; Inconsistent, lacks cohesion">2</span>
+          <span class="grade-btn" onclick="setGrade('b1',1,this)" data-tip="Limited (0-2) &bull; Poor or incomplete design">1</span>
+        </div>
+      </div>
+
+      <div class="rubric-criterion" id="rc-b2">
+        <div class="rc-label">Functionality, Navigation &amp; Interactivity (IND5-3, IND5-9)</div>
+        <div class="rc-desc">4+ screens, working navigation, buttons/links/lists/forms, clear user flow, Adalo features.</div>
+        <div class="grade-row">
+          <span class="grade-btn" onclick="setGrade('b2',5,this)" data-tip="Outstanding (9-10) &bull; 4+ screens, seamless, all interactive elements work">5</span>
+          <span class="grade-btn" onclick="setGrade('b2',4,this)" data-tip="High (7-8) &bull; 4 screens, clear navigation, minor issues">4</span>
+          <span class="grade-btn" onclick="setGrade('b2',3,this)" data-tip="Sound (5-6) &bull; 4 screens, some working elements, some gaps">3</span>
+          <span class="grade-btn" onclick="setGrade('b2',2,this)" data-tip="Basic (3-4) &bull; <4 screens, incomplete navigation">2</span>
+          <span class="grade-btn" onclick="setGrade('b2',1,this)" data-tip="Limited (0-2) &bull; Minimal, non-functional prototype">1</span>
+        </div>
+      </div>
+      <div class="part-mark">Part B mark: <input type="number" class="mark-input" id="markPartB" min="0" max="10" placeholder="-" oninput="updateTotal()"> <span class="rs-of">/ 10</span></div>
+    </div>
+
+    <!-- Total -->
+    <div class="rubric-total">
+      <span class="total-label">TOTAL</span>
+      <span><span class="total-mark" id="totalMark">0</span><span style="font-size:1rem;color:var(--grey)"> / 25</span><span class="grade-badge" id="gradeBadge" style="display:none"></span></span>
+    </div>
+
+    <div style="margin-top:16px">
+      <div class="sub-label">Overall teacher comment</div>
+      <textarea class="teacher-comment" id="teacherOverall" placeholder="Overall feedback for the student..." oninput="saveTeacherData()"></textarea>
+    </div>
+    <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn-quick" onclick="copyMarksToClipboard()">&#128203; Copy Marks</button>
+      <button class="btn-quick btn-csv" onclick="downloadMarksCSV()">&#128202; Download CSV</button>
+      <button class="btn-quick btn-print" onclick="printMarked()">&#128424; Print PDF</button>
+    </div>
+    <div id="copyFeedback" style="display:none;margin-top:8px;padding:8px 14px;background:#e8f5e9;color:#2e7d32;border-radius:6px;font-size:.82rem;font-weight:600">&#9989; Copied to clipboard!</div>
+  </div>
 
   <footer class="ws-footer">
     <span><strong>Year 10 Industrial Technology Multimedia</strong> &mdash; Arthur Phillip High School &mdash; 2026</span>
@@ -591,6 +713,11 @@ function loadImage(event, boxId, labelId){
   event.stopPropagation();
   const file = event.target.files[0];
   if(!file) return;
+  if(file.size > 10 * 1024 * 1024){
+    alert('This image is too large (over 10 MB). Please use a smaller image or take a photo at lower resolution.');
+    event.target.value = '';
+    return;
+  }
 
   // Compress large images before storing
   const reader = new FileReader();
@@ -732,6 +859,278 @@ function loadFromHash(){
 
 // ── PDF ──
 function savePDF(){ window.print(); }
+
+// ── Submit to Teacher (JSON download) ──
+function submitToTeacher(){
+  const name = (document.getElementById('studentName').value || '').trim();
+  if(!name){
+    alert('Please enter your name at the top of the portfolio before submitting.');
+    document.getElementById('studentName').focus();
+    return;
+  }
+  const data = {};
+  document.querySelectorAll('[data-save]').forEach(el=>{
+    const key = el.dataset.save;
+    if(el.type === 'checkbox') data[key] = el.checked;
+    else if(el.value && el.value.trim()) data[key] = el.value;
+  });
+  document.querySelectorAll('.rank-btn.active').forEach(btn=>{
+    const group = btn.parentElement.dataset.group;
+    data['rank_'+group] = btn.dataset.val;
+  });
+  // Include images
+  document.querySelectorAll('.draw-box.has-image img').forEach(img=>{
+    const boxId = img.closest('.draw-box').id;
+    data['img_'+boxId] = img.src;
+  });
+  const safeName = name.replace(/[^a-zA-Z0-9]/g,'_');
+  const blob = new Blob([JSON.stringify(data)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'AppDesign_' + safeName + '.json';
+  a.click();
+  URL.revokeObjectURL(a.href);
+  alert('Your portfolio has been downloaded!\\n\\nUpload the file "AppDesign_' + safeName + '.json" to Google Classroom.\\n\\nAll your text AND images are included.');
+}
+
+// ── Teacher Mode ──
+const TEACHER_STORAGE_KEY = 'y10-design-portfolio-teacher';
+let teacherMode = false;
+
+function toggleTeacher(){
+  teacherMode = !teacherMode;
+  const btn = document.getElementById('btnTeacher');
+  const panel = document.getElementById('teacherPanel');
+  const loadBtn = document.getElementById('btnLoadFile');
+  btn.textContent = teacherMode ? 'Exit Teacher Mode' : '\u{1F511} Teacher Mode';
+  btn.classList.toggle('on', teacherMode);
+  panel.classList.toggle('active', teacherMode);
+  loadBtn.style.display = teacherMode ? '' : 'none';
+  document.querySelectorAll('.teacher-inline').forEach(el=>{
+    el.classList.toggle('active', teacherMode);
+  });
+  if(teacherMode) loadTeacherData();
+}
+
+// ── Grade marking ──
+function setGrade(criterion, score, btn){
+  btn.parentElement.querySelectorAll('.grade-btn').forEach(b=>{ b.className = 'grade-btn'; });
+  btn.classList.add('sel-'+score);
+  autoCalcMarks();
+  saveTeacherData();
+}
+
+function getSelectedScore(containerId){
+  const container = document.getElementById(containerId);
+  const sel = container.querySelector('.grade-btn[class*="sel-"]');
+  if(!sel) return null;
+  const match = sel.className.match(/sel-(\d)/);
+  return match ? parseInt(match[1]) : null;
+}
+
+function autoCalcMarks(){
+  // Part A: 4 criteria each /5, scale to /15
+  const scores = ['rc-a1','rc-a2','rc-a3','rc-a4'].map(id => getSelectedScore(id));
+  const filled = scores.filter(s => s !== null);
+  if(filled.length > 0){
+    const sum = filled.reduce((a,b) => a+b, 0);
+    // Scale: if all 4 filled, max is 20, scale to 15
+    const scaled = Math.round((sum / (filled.length * 5)) * 15);
+    document.getElementById('markPartA').value = scaled;
+  }
+  // Part B: 2 criteria each /5, scale to /10
+  const bScores = ['rc-b1','rc-b2'].map(id => getSelectedScore(id));
+  const bFilled = bScores.filter(s => s !== null);
+  if(bFilled.length > 0){
+    const sum = bFilled.reduce((a,b) => a+b, 0);
+    const scaled = Math.round((sum / (bFilled.length * 5)) * 10);
+    document.getElementById('markPartB').value = scaled;
+  }
+  updateTotal();
+}
+
+function updateTotal(){
+  const a = parseFloat(document.getElementById('markPartA').value) || 0;
+  const b = parseFloat(document.getElementById('markPartB').value) || 0;
+  const total = Math.min(25, a + b);
+  document.getElementById('totalMark').textContent = total;
+  const badge = document.getElementById('gradeBadge');
+  const pct = (total / 25) * 100;
+  let grade = '', cls = '';
+  if(pct >= 80){ grade = 'A'; cls = 'grade-a'; }
+  else if(pct >= 60){ grade = 'B'; cls = 'grade-b'; }
+  else if(pct >= 40){ grade = 'C'; cls = 'grade-c'; }
+  else if(pct >= 20){ grade = 'D'; cls = 'grade-d'; }
+  else{ grade = 'E'; cls = 'grade-e'; }
+  badge.textContent = grade;
+  badge.className = 'grade-badge ' + cls;
+  badge.style.display = (a || b) ? 'inline-block' : 'none';
+  saveTeacherData();
+}
+
+function saveTeacherData(){
+  const student = document.getElementById('studentName').value || 'unknown';
+  const key = TEACHER_STORAGE_KEY + '-' + student.replace(/[^a-zA-Z0-9]/g,'_');
+  const td = {
+    markA: document.getElementById('markPartA').value,
+    markB: document.getElementById('markPartB').value,
+    overall: document.getElementById('teacherOverall').value,
+    s1: document.getElementById('tc-s1').value,
+    s2: document.getElementById('tc-s2').value,
+    s3: document.getElementById('tc-s3').value,
+    s4: document.getElementById('tc-s4').value,
+    gradeA1: getSelectedScore('rc-a1'),
+    gradeA2: getSelectedScore('rc-a2'),
+    gradeA3: getSelectedScore('rc-a3'),
+    gradeA4: getSelectedScore('rc-a4'),
+    gradeB1: getSelectedScore('rc-b1'),
+    gradeB2: getSelectedScore('rc-b2')
+  };
+  localStorage.setItem(key, JSON.stringify(td));
+}
+
+function loadTeacherData(){
+  const student = document.getElementById('studentName').value || 'unknown';
+  const key = TEACHER_STORAGE_KEY + '-' + student.replace(/[^a-zA-Z0-9]/g,'_');
+  const raw = localStorage.getItem(key);
+  if(!raw) return;
+  try{
+    const td = JSON.parse(raw);
+    if(td.markA) document.getElementById('markPartA').value = td.markA;
+    if(td.markB) document.getElementById('markPartB').value = td.markB;
+    if(td.overall) document.getElementById('teacherOverall').value = td.overall;
+    if(td.s1) document.getElementById('tc-s1').value = td.s1;
+    if(td.s2) document.getElementById('tc-s2').value = td.s2;
+    if(td.s3) document.getElementById('tc-s3').value = td.s3;
+    if(td.s4) document.getElementById('tc-s4').value = td.s4;
+    // Restore grade selections
+    const gradeMap = {gradeA1:'rc-a1',gradeA2:'rc-a2',gradeA3:'rc-a3',gradeA4:'rc-a4',gradeB1:'rc-b1',gradeB2:'rc-b2'};
+    Object.keys(gradeMap).forEach(k=>{
+      if(td[k]){
+        const container = document.getElementById(gradeMap[k]);
+        container.querySelectorAll('.grade-btn').forEach(btn=>{
+          if(btn.textContent.trim() === String(td[k])) btn.classList.add('sel-'+td[k]);
+        });
+      }
+    });
+    updateTotal();
+  }catch(e){}
+}
+
+// ── Load student JSON file ──
+function loadSubmissionFile(file){
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = function(e){
+    try{
+      const data = JSON.parse(e.target.result);
+      document.querySelectorAll('[data-save]').forEach(el=>{
+        const key = el.dataset.save;
+        if(key in data){
+          if(el.type === 'checkbox') el.checked = data[key];
+          else el.value = data[key];
+        }
+      });
+      Object.keys(data).forEach(k=>{
+        if(k.startsWith('rank_')){
+          const group = k.replace('rank_','');
+          const container = document.querySelector('[data-group="'+group+'"]');
+          if(container){
+            container.querySelectorAll('.rank-btn').forEach(b=>{
+              b.classList.remove('active');
+              if(b.dataset.val === data[k]) b.classList.add('active');
+            });
+          }
+        }
+        if(k.startsWith('img_')){
+          const boxId = k.replace('img_','');
+          const box = document.getElementById(boxId);
+          if(box && data[k]){
+            const label = box.querySelector('span');
+            if(label) label.style.display = 'none';
+            const existing = box.querySelector('img');
+            if(existing) existing.remove();
+            const img = document.createElement('img');
+            img.src = data[k];
+            box.appendChild(img);
+            box.classList.add('has-image');
+          }
+        }
+      });
+      updateProgress();
+      loadTeacherData();
+      alert('Student file loaded: ' + (data.studentName || 'Unknown'));
+    }catch(err){
+      alert('Error loading file. Make sure it is a valid JSON file.');
+    }
+  };
+  reader.readAsText(file);
+}
+
+// ── Quick export functions ──
+function getMarksSummary(){
+  const name = document.getElementById('studentName').value || 'Unknown';
+  const cls = document.getElementById('studentClass').value || '';
+  const gA1 = getSelectedScore('rc-a1') || '-';
+  const gA2 = getSelectedScore('rc-a2') || '-';
+  const gA3 = getSelectedScore('rc-a3') || '-';
+  const gA4 = getSelectedScore('rc-a4') || '-';
+  const gB1 = getSelectedScore('rc-b1') || '-';
+  const gB2 = getSelectedScore('rc-b2') || '-';
+  const mA = document.getElementById('markPartA').value || '0';
+  const mB = document.getElementById('markPartB').value || '0';
+  const total = document.getElementById('totalMark').textContent || '0';
+  const grade = document.getElementById('gradeBadge').textContent || '';
+  const comment = document.getElementById('teacherOverall').value || '';
+  return {name,cls,gA1,gA2,gA3,gA4,gB1,gB2,mA,mB,total,grade,comment};
+}
+
+function copyMarksToClipboard(){
+  const m = getMarksSummary();
+  const text = [
+    'Student: '+m.name+' ('+m.cls+')',
+    '\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500',
+    'Part A \u2014 Design Folio: '+m.mA+'/15',
+    '  Statement & Research: '+m.gA1+'/5',
+    '  Design Development:   '+m.gA2+'/5',
+    '  Design Annotations:   '+m.gA3+'/5',
+    '  Evaluation:           '+m.gA4+'/5',
+    'Part B \u2014 App Prototype: '+m.mB+'/10',
+    '  Visual Design & UX:      '+m.gB1+'/5',
+    '  Functionality & Nav:     '+m.gB2+'/5',
+    '\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500',
+    'TOTAL: '+m.total+'/25  '+m.grade,
+    m.comment ? '\\nOverall: '+m.comment : ''
+  ].filter(Boolean).join('\\n');
+  navigator.clipboard.writeText(text).then(()=>{
+    const fb = document.getElementById('copyFeedback');
+    fb.style.display = 'block';
+    setTimeout(()=>{ fb.style.display = 'none'; }, 2000);
+  });
+}
+
+function downloadMarksCSV(){
+  const m = getMarksSummary();
+  const headers = ['Student','Class','Research /5','Development /5','Annotations /5','Evaluation /5','Part A /15','Visual Design /5','Functionality /5','Part B /10','Total /25','Grade','Comment'];
+  const row = [m.name,m.cls,m.gA1,m.gA2,m.gA3,m.gA4,m.mA,m.gB1,m.gB2,m.mB,m.total,m.grade,'"'+m.comment.replace(/"/g,'""')+'"'];
+  const csv = headers.join(',') + '\\n' + row.join(',') + '\\n';
+  const blob = new Blob([csv], {type:'text/csv'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'marks_'+m.name.replace(/[^a-zA-Z0-9]/g,'_')+'.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function printMarked(){
+  document.querySelectorAll('.teacher-inline.active').forEach(el=>el.classList.add('print-show'));
+  document.getElementById('teacherPanel').classList.add('print-show');
+  window.print();
+  setTimeout(()=>{
+    document.querySelectorAll('.print-show').forEach(el=>el.classList.remove('print-show'));
+  }, 1000);
+}
 
 // ── Clear ──
 function clearAll(){
